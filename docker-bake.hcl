@@ -1,8 +1,9 @@
-target "docker-metadata-action" {}
+target "docker-metadata-action" {
+  tags = []
+}
 
 target "_common" {
   platforms = ["linux/amd64", "linux/arm64"]
-  inherits = ["docker-metadata-action"]
 }
 
 function "generate_tags" {
@@ -12,5 +13,5 @@ function "generate_tags" {
 
 target "test" {
   inherits = ["_common"]
-  tags = formatlist("%s/test:%s", "docker.io", target.docker-metadata-action.tags)
+  tags = generate_tags("docker.io", target.docker-metadata-action.tags)
 }
