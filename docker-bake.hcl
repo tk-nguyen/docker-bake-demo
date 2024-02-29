@@ -1,6 +1,4 @@
-target "docker-metadata-action" {
-  tags = []
-}
+target "docker-metadata-action" {}
 
 target "_common" {
   platforms = ["linux/amd64", "linux/arm64"]

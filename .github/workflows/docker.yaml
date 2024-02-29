@@ -26,6 +26,10 @@ jobs:
             type=semver,pattern=v{{major}}
             type=semver,pattern=v{{major}}.{{minor}}
 
+      - name: Debug
+        run: |
+          cat ${{ steps.meta.outputs.bake-file-tags }} ${{ steps.meta.outputs.bake-file-labels }} ${{ steps.meta.outputs.bake-file-annotations }}
+
       - name: Build and push
         uses: docker/bake-action@v4
         with:
