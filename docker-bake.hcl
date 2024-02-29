@@ -2,6 +2,7 @@ target "docker-metadata-action" {}
 
 target "_common" {
   platforms = ["linux/amd64", "linux/arm64"]
+  inherits = ["docker-metadata-action"]
 }
 
 function "generate_tags" {
