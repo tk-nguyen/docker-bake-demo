@@ -12,5 +12,5 @@ function "generate_tags" {
 
 target "test" {
   inherits = ["_common"]
-  tags = generate_tags("docker.io", target.docker-metadata-action.tags)
+  tags = formatlist("%s/test:%s", "docker.io", target.docker-metadata-action.tags)
 }
